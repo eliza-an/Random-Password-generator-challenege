@@ -1,79 +1,64 @@
-# Module 5 Challenge: Password Generator
+#Random Password Generator
+This is the fifth bootcamp challenge. This assignment consisted of creating a random password generator
 
-## Overview
- 
-This week’s challenge requires you to create an application that an employee can use to generate a random password based on criteria they’ve selected by modifying starter code. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
+## Description
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of Password Special Characters from the OWASP Foundation](https://www.owasp.org/index.php/Password_special_characters).
-
-## Instructions
-
-The following image shows the web application's appearance and functionality:
-
-![password generator demo](./assets/05-javascript-challenge-demo.png)
+This was the fifth challange of the bootcamp. It's purpose was to create a random password generator following this criteria: 
 
 
-* Generate a password when the button is clicked
-  * Present a series of prompts for password criteria
-    * Length of password
-      * At least 8 characters but no more than 128.
-    * Character types
-      * Lowercase
-      * Uppercase
-      * Numeric
-      * Special characters ($@%&*, etc)
-  * Code should validate for each input and at least one character type should be selected
-  * Once prompts are answered then the password should be generated and displayed in an alert or written to the page
+Generate a password when the button is clicked.
 
-## Grading Requirements
+Present a series of prompts for password criteria:
 
-This challenge is graded based on the following criteria: 
+Length of password:
 
-### Technical Acceptance Criteria: 40%
+At least 10 characters but no more than 64.
 
-* Satisfies all of the above acceptance criteria plus the following:
+Character types:
 
-  * The challenge should not produce any errors in the console when you inspect it using Chrome DevTools.
+Lowercase
 
-### Deployment: 32%
+Uppercase
 
-* Application deployed at live URL.
+Numeric
 
-* Application loads with no errors.
+Special characters ($@%&*, etc.)
 
-* Application GitHub URL submitted.
+Code should validate for each input and at least one character type should be selected.
 
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
+Once all prompts are answered, the password should be generated and displayed in an alert or written to the page.
 
 
-## Review
+This was one of the most challenging projects I have worked on thus far. Practicing javascript turned out to be much more difficult than expected. After a lot of debugging and a tedious amount of errors, I managed to create this application to follow the crietria. Although this assessment was a massive challenge, it taught me an incredible amount. I learned to use new functions and new syntax with javascript. Very interesting project!
 
-You are required to submit the following for review:
 
-* The URL of the deployed application.
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+![image](https://user-images.githubusercontent.com/118762745/213029200-4762e80a-9b14-4731-bb39-a22871e160b6.png)
 
----
 
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+
+
+
+Link: https://eliza-an.github.io/Random-Password-generator-challenege/
+
+
+## Installation
+
+N/A
+
+
+## Usage
+
+This website was intended to generate a random password. Simply click on the big red button saying "Generate Password" , follow the prompts by clicking confirm or cancel - and watch the magic happen!
+
+## Credits
+
+I would like to give credit to my bootcamp class, all of whom contributed with helpful suggestions and explanations of concepts. 
+The assessment crieteria and starter code was provided by Trillogy Skills Bootcamp. 
+Finally I would like to thank Henry Green https://github.com/HenryJamesGreen and Joel Morley https://github.com/jwmorley73 for their helpful contributiuons and discussions.
+
+
+## License
+
+Please refer to the license in the repo
