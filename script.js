@@ -186,9 +186,75 @@ function getRandom(arr) {
 
 
 // Function to generate password with user input
+//firstly we generate a number between a maximum and a minimum
+function generateRandom(min = 0, max = 100) {
+
+  // we use this to find the difference between the max and min
+  let difference = max - min;
+
+  // we now generate a random number between 0 and 1  
+  let rand = Math.random();
+
+  // then we multiply that number by the difference and round down
+  rand = Math.floor( rand * difference);
+
+  // add with min value 
+  rand = rand + min;
+
+  return rand;
+}
+
+
+
 function generatePassword() {
 
+//adding up all of the number of pools to see how many we have. This is to see what we need to subtract from the length to get a maximum value
+let numberOfPools =0
+
+  if (getPasswordOptions.lower==true) {
+    numberOfPools=numberOfPools+1
+  }
+  if (getPasswordOptions.upper==true) {
+    numberOfPools=numberOfPools+1
+  }
+  if (getPasswordOptions.number==true) {
+    numberOfPools=numberOfPools+1
+  }
+  if (getPasswordOptions.special==true) {
+    numberOfPools=numberOfPools+1
+  }
+
+
+
+
+//This is to call the random number generating function if the option has been selected
+
+let NumberofElementsFromLower=0
+let NumberofElementsFromUpper=0
+let NumberofElementsFromSpecial=0
+let NumberofElementsFromNumber=0
+
+  if (getPasswordOptions.lower==true) {
+     NumberofElementsFromLower= generateRandom(1,getPasswordOptions.length-numberOfPools+1)
+  }
+  if (getPasswordOptions.upper==true) {
+    NumberofElementsFromUpper= generateRandom(1,getPasswordOptions.length-numberOfPools-NumberofElementsFromLower)
+  }
+  if (getPasswordOptions.number==true) {
+     NumberofElementsFromNumber= generateRandom(1,getPasswordOptions.length-numberOfPools-NumberofElementsFromLower-NumberofElementsFromUpperer)
+  }
+  if (getPasswordOptions.special==true) {
+   NumberofElementsFromSpecial= getPasswordOptions.length - NumberofElementsFromNumber - NumberofElementsFromUpper-NumberofElementsFromLower
+  }
+ 
+  
+ 
+  
 }
+
+
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
