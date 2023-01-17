@@ -90,58 +90,68 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 
-
-
-
 function getPasswordOptions() {
 
-  //
+  //creating an array with numbers 10-64
   let running = true;
   while(running===true){
-    //var choices = Array.from({length: 65}, (_, i) => i + 10)
+    var choices = Array.from({length: 55}, (_, i) => i + 10)
   
-    //let answernumber= prompt ("How many characters would you like your password to have?", "Please type a value betweeen 10 and 64")
-      
-    //if (choices.indexOf(answernumber)===-1) {
-   //     alert("Not a Valid Choice! Please pick a number between 10 and 64!") 
-    //} else {
-   //   alert( "You have chosen: " + answernumber)
-   // }
+    let response1= prompt ("How many characters would you like your password to have?", "Please type a value betweeen 10 and 64")
+     response1=parseInt(response1)
+    if (choices.indexOf(response1)===-1) {
 
+        // allowing the user to exit by pressing cancel
 
-    const response2= confirm("Would you like to use special characters in your password? Please press cancel if not ( @, %, + etc..)")
-    if (response2) { 
-      var special =true
-     } else{ 
-      var special =false
-     
+        if(confirm("Not a Valid Choice! Please try again!")) {
+          continue
+        } else {
+          break
+        }
+        
+    }else {
+      alert( "You have chosen: " + response1)
     }
 
-    const response3= confirm (" Would you like to use lower-case letters? Please press cancel if not (a, b, c etc...)") 
-    if (response3){
+
+//lower case letter confirm box
+    const response2= confirm (" Would you like to use lower-case letters? Please press cancel if not (a, b, c etc...)") 
+    if (response2){
       var lower = true
     }else{
       var lower = false
     }
 
-    const response4 = confirm( "Would you like to use upper-case letters? Please press cancel if not (A, B, C etc...)")
+
+//upper case letter confirm box    
+    const response3 = confirm( "Would you like to use upper-case letters? Please press cancel if not (A, B, C etc...)")
+    if (response3){
+      var upper= true
+    }else {
+      var upper = false
+    }
+
+// numbers confirm box    
+
+    const response4 = confirm( "Would you like to use numbers? Please press cancel if not (1, 2, 3 etc...)")
     if (response4){
       var upper= true
     }else {
       var upper = false
     }
+
+//special charachters confirm box    
+    const response5= confirm("Would you like to use special characters in your password? Please press cancel if not ( @, %, + etc..)")
+    if (response5) { 
+      var special =true
+    } else{ 
+      var special =false
+    
+    }
   }
 }
-
-
-
-
-   
-
-  //Here we will continue if the user selects a value between 10-64
   
-
-
+//CALLING THE FUNCTION TO START THE QUESTIONAIRE
   getPasswordOptions()
 
 // Function for getting a random element from an array
