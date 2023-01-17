@@ -135,9 +135,9 @@ function getPasswordOptions() {
 
     const response4 = confirm( "Would you like to use numbers? Please press cancel if not (1, 2, 3 etc...)")
     if (response4){
-      var upper= true
+      var number= true
     }else {
-      var upper = false
+      var number = false
     }
 
 //special charachters confirm box    
@@ -155,9 +155,35 @@ function getPasswordOptions() {
   getPasswordOptions()
 
 // Function for getting a random element from an array
+
 function getRandom(arr) {
 
-}
+  // get random index value
+  const randomIndex = Math.floor(Math.random() * arr.length);
+
+  // get random item
+  const item = arr[randomIndex];
+
+  return item;
+  }
+
+  //creating a variable for a random lower case letter
+  let randlower = getRandom(lowerCasedCharacters)
+  
+
+//creating a variable for a random upper case letter
+  let randupper = getRandom(upperCasedCharacters)
+  
+
+  //creating a variable for a random number
+  let randnumber = getRandom(numericCharacters)
+ 
+
+  //creating a variable for a random special character
+  let randspecial = getRandom(specialCharacters)
+  
+
+
 
 // Function to generate password with user input
 function generatePassword() {
