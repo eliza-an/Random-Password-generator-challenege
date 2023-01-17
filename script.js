@@ -90,69 +90,12 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 
-function getPasswordOptions() {
 
-  //creating an array with numbers 10-64
-  let running = true;
-  while(running===true){
-    var choices = Array.from({length: 55}, (_, i) => i + 10)
   
-    let response1= prompt ("How many characters would you like your password to have?", "Please type a value betweeen 10 and 64")
-     response1=parseInt(response1)
-    if (choices.indexOf(response1)===-1) {
 
-        // allowing the user to exit by pressing cancel
-
-        if(confirm("Not a Valid Choice! Please try again!")) {
-          continue
-        } else {
-          break
-        }
-        
-    }else {
-      alert( "You have chosen: " + response1)
-    }
-
-
-//lower case letter confirm box
-    const response2= confirm (" Would you like to use lower-case letters? Please press cancel if not (a, b, c etc...)") 
-    if (response2){
-      var lower = true
-    }else{
-      var lower = false
-    }
-
-
-//upper case letter confirm box    
-    const response3 = confirm( "Would you like to use upper-case letters? Please press cancel if not (A, B, C etc...)")
-    if (response3){
-      var upper= true
-    }else {
-      var upper = false
-    }
-
-// numbers confirm box    
-
-    const response4 = confirm( "Would you like to use numbers? Please press cancel if not (1, 2, 3 etc...)")
-    if (response4){
-      var number= true
-    }else {
-      var number = false
-    }
-
-//special charachters confirm box    
-    const response5= confirm("Would you like to use special characters in your password? Please press cancel if not ( @, %, + etc..)")
-    if (response5) { 
-      var special =true
-    } else{ 
-      var special =false
-    
-    }
-  }
-}
   
 //CALLING THE FUNCTION TO START THE QUESTIONAIRE
-  getPasswordOptions()
+ 
 
 // Function for getting a random element from an array
 
@@ -205,22 +148,88 @@ function generateRandom(min = 0, max = 100) {
 }
 
 
+//creating a function to randomly shuffle my password after generating
+  function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+  }
+
+
 
 function generatePassword() {
+
+  //creating an array with numbers 10-64
+  let running = true;
+  let response1 = ''
+  while(running===true){
+    var choices = Array.from({length: 55}, (_, i) => i + 10)
+  
+    response1= prompt ("How many characters would you like your password to have?", "Please type a value betweeen 10 and 64")
+     response1=parseInt(response1)
+    if (choices.indexOf(response1)===-1) {
+
+        // allowing the user to exit by pressing cancel
+
+        if(confirm("Not a Valid Choice! Please try again!")) {
+          continue
+        } else {
+          break
+        }
+        
+    }else {
+      alert( "You have chosen: " + response1)
+
+    }
+    break
+  }
+
+//lower case letter confirm box
+    const response2= confirm (" Would you like to use lower-case letters? Please press cancel if not (a, b, c etc...)") 
+    if (response2){
+      var lower = true
+    }else{
+      var lower = false
+    }
+
+
+//upper case letter confirm box    
+    const response3 = confirm( "Would you like to use upper-case letters? Please press cancel if not (A, B, C etc...)")
+    if (response3){
+      var upper= true
+    }else {
+      var upper = false
+    }
+
+// numbers confirm box    
+
+    const response4 = confirm( "Would you like to use numbers? Please press cancel if not (1, 2, 3 etc...)")
+    if (response4){
+      var number= true
+    }else {
+      var number = false
+    }
+
+//special charachters confirm box    
+    const response5= confirm("Would you like to use special characters in your password? Please press cancel if not ( @, %, + etc..)")
+    if (response5) { 
+      var special =true
+    } else{ 
+      var special =false
+    
+    }
 
 //adding up all of the number of pools to see how many we have. This is to see what we need to subtract from the length to get a maximum value
 let numberOfPools =0
 
-  if (getPasswordOptions.lower==true) {
+  if (lower==true) {
     numberOfPools=numberOfPools+1
   }
-  if (getPasswordOptions.upper==true) {
+  if (upper==true) {
     numberOfPools=numberOfPools+1
   }
-  if (getPasswordOptions.number==true) {
+  if (number==true) {
     numberOfPools=numberOfPools+1
   }
-  if (getPasswordOptions.special==true) {
+  if (special==true) {
     numberOfPools=numberOfPools+1
   }
 
@@ -234,22 +243,40 @@ let NumberofElementsFromUpper=0
 let NumberofElementsFromSpecial=0
 let NumberofElementsFromNumber=0
 
-  if (getPasswordOptions.lower==true) {
-     NumberofElementsFromLower= generateRandom(1,getPasswordOptions.length-numberOfPools+1)
+
+  if (lower===true) {
+   
+     NumberofElementsFromLower= generateRandom(1,response1-numberOfPools+1)
   }
-  if (getPasswordOptions.upper==true) {
-    NumberofElementsFromUpper= generateRandom(1,getPasswordOptions.length-numberOfPools-NumberofElementsFromLower)
+  if (upper===true) {
+    NumberofElementsFromUpper= generateRandom(1,response1-numberOfPools-NumberofElementsFromLower)
   }
-  if (getPasswordOptions.number==true) {
-     NumberofElementsFromNumber= generateRandom(1,getPasswordOptions.length-numberOfPools-NumberofElementsFromLower-NumberofElementsFromUpperer)
+  if (number===true) {
+     NumberofElementsFromNumber= generateRandom(1,response1-numberOfPools-NumberofElementsFromLower-NumberofElementsFromUpper)
   }
-  if (getPasswordOptions.special==true) {
-   NumberofElementsFromSpecial= getPasswordOptions.length - NumberofElementsFromNumber - NumberofElementsFromUpper-NumberofElementsFromLower
+  if (special===true) {
+   NumberofElementsFromSpecial= response1 - NumberofElementsFromNumber - NumberofElementsFromUpper-NumberofElementsFromLower
   }
- 
+
+  let password=[]
+  for( let i=0; i<NumberofElementsFromLower; i++){
+    password.push(getRandom(lowerCasedCharacters))
+  }
+  for( let i=0; i<NumberofElementsFromUpper; i++){
+    password.push(getRandom(upperCasedCharacters))
+  }
+  for( let i=0; i<NumberofElementsFromNumber; i++){
+    password.push(getRandom(numericCharacters))
+  }
+  for( let i=0; i<NumberofElementsFromSpecial; i++){
+    password.push(getRandom(specialCharacters))
+  }
+  console.log(password)
   
- 
-  
+  shuffle(password)
+  console.log(password)
+
+  return password.join('')
 }
 
 
