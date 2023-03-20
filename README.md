@@ -1,4 +1,4 @@
-#Random Password Generator
+# Random Password Generator
 This is the fifth bootcamp challenge. This assignment consisted of creating a random password generator
 
 ## Description
